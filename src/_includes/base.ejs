@@ -9,5 +9,6 @@
   <%- content %>
   <%- include('/artists', { artists: spotify.artists }) %>
   <%- include('/tracks', { tracks: spotify.tracks }) %>
+  <small>Updated <%= builtAt %></small>
 </body>
 </html>
