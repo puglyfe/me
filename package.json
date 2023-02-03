@@ -2,17 +2,16 @@
   "name": "me",
   "version": "1.0.0",
   "description": "My site",
-  "main": "index.js",
-  "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy"
-  },
-  "author": "",
   "license": "MIT",
+  "private": true,
   "dependencies": {
     "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-fetch": "^3.0.0",
     "dotenv": "^16.0.3",
     "node-fetch": "^2.6.9"
+  },
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
   }
 }

@@ -21,9 +21,10 @@ module.exports = async function () {
       Authorization: `Basic ${auth}`,
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: `grant_type=refresh_token&refresh_token=${
-      process.env.SPOTIFY_REFRESH_TOKEN
-    }&redirect_uri=${encodeURI(process.env.BASE_URL, +'/callback/')}`,
+    body: new URLSearchParams({
+      grant_type: 'refresh_token',
+      refresh_token: process.env.SPOTIFY_REFRESH_TOKEN,
+    }),
   };
 
   const accessToken = await fetch(TOKEN_ENDPOINT, options)
