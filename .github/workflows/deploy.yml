@@ -3,6 +3,9 @@ name: Deploy
 on:
   push:
     branches: ['main']
+  schedule:
+    # Run at 5min after the hour, every hour, every day.
+    - cron: '5 * * * *'
 
 jobs:
   create_artifact:
