@@ -1,0 +1,8 @@
+<p>Top Spotify Artists (updated every hour)</p>
+<ul>
+  <% artists.forEach(function(artist) { %>
+    <li>
+      <a href="<%= artist.external_urls.spotify %>" rel="noopener noreferrer" target="_blank"><%= artist.name %></a>
+    </li>
+  <% }); %>
+</ul>

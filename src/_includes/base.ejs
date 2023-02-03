@@ -7,5 +7,7 @@
 </head>
 <body>
   <%- content %>
+  <%- include('/artists', { artists: spotify.artists }) %>
+  <%- include('/tracks', { tracks: spotify.tracks }) %>
 </body>
 </html>

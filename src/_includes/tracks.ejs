@@ -1,0 +1,8 @@
+<p>Top Spotify Tracks (updated every hour)</p>
+<ul>
+  <% tracks.forEach(function(track) { %>
+    <li>
+      <a href="<%= track.external_urls.spotify %>" rel="noopener noreferer" target="_blank"><%= track.artists.map((artist) => artist.name).join(', ') %> - <%= track.name %></a>
+    </li>
+  <% }); %>
+</ul>
