@@ -7,6 +7,8 @@ module.exports = function (eleventyConfig) {
     }).format(now);
   });
 
+  eleventyConfig.addPassthroughCopy('src/bundle.js');
+
   return {
     dir: {
       data: '../_data',
