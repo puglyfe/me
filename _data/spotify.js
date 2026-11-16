@@ -30,10 +30,17 @@ module.exports = async function () {
     }),
   };
 
-  const accessToken = await fetch(TOKEN_ENDPOINT, options)
-    .then((res) => res.json())
-    .then((json) => json.access_token)
-    .catch(console.err);
+  const tokenResponse = await fetch(TOKEN_ENDPOINT, options);
+  const tokenJson = await tokenResponse.json();
+
+  // Fail loudly here, otherwise the API calls below 401 with "Bearer undefined"
+  if (!tokenResponse.ok || !tokenJson.access_token) {
+    throw new Error(
+      `Spotify token refresh failed (${tokenResponse.status}): ${tokenJson.error} - ${tokenJson.error_description}`,
+    );
+  }
+
+  const accessToken = tokenJson.access_token;
 
   // Build artists query
   const artistsUrl = new URL(ARTISTS_ENDPOINT);
